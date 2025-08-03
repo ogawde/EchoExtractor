@@ -9,6 +9,7 @@ class BaseScraper(ABC):
 
 class RedditScraper(BaseScraper):
     async def scrape(self, url: str) -> dict:
+        try:
             json_url = url.rstrip('/') + '.json'
             async with httpx.AsyncClient() as client:
                 response = await client.get(
@@ -43,12 +44,21 @@ class RedditScraper(BaseScraper):
                 'platform': 'reddit'
             }
             
-
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 404:
+                raise Exception("Reddit thread not found. Please check the URL and ensure the thread exists.")
+            elif e.response.status_code == 403:
+                raise Exception("Access denied by Reddit. The thread may be private or removed.")
+            else:
+                raise Exception(f"Reddit API error: {e.response.status_code}")
+        except Exception as e:
+            raise Exception(f"Failed to scrape Reddit thread: {str(e)}")
 
 
 
 class HNScraper(BaseScraper):
     async def scrape(self, url: str) -> dict:
+        try:
             match = re.search(r'id=(\d+)', url)
             if not match:
                 raise Exception("Invalid Hacker News URL format")
@@ -92,4 +102,10 @@ class HNScraper(BaseScraper):
                 'platform': 'hackernews'
             }
             
-       
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 404:
+                raise Exception("Hacker News thread not found. Please check the URL and ensure the thread exists.")
+            else:
+                raise Exception(f"Hacker News API error: {e.response.status_code}")
+        except Exception as e:
+            raise Exception(f"Failed to scrape Hacker News thread: {str(e)}")
