@@ -15,7 +15,7 @@ class RedditScraper(BaseScraper):
                 response = await client.get(
                     json_url,
                     headers={
-                        'User-Agent': 'ThreadSummarizer/1.0 (Educational Project)',
+                        'User-Agent': 'ThreadSummarizer',
                         'Accept': 'application/json'
                     },
                     timeout=15.0
