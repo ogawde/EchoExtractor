@@ -9,31 +9,31 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
     return (
       <div className="space-y-4">
         <div className="grid grid-cols-3 gap-4 text-center">
-          <div className="bg-teal-50 rounded-lg p-4">
-            <div className="text-2xl font-bold text-teal-700">{positive}%</div>
+          <div className="bg-teal-50 rounded-lg p-4 hover:shadow-2xl transition-all duration-200">
+            <div className="text-2xl font-bold text-gray-700">{positive}%</div>
             <div className="text-sm text-teal-700">Positive</div>
           </div>
-          <div className="bg-teal-50 rounded-lg p-4">
-            <div className="text-2xl font-bold text-teal-600">{neutral}%</div>
+          <div className="bg-yellow-100 rounded-lg p-4 hover:shadow-2xl transition-all duration-200">
+            <div className="text-2xl font-bold text-gray-700">{neutral}%</div>
             <div className="text-sm text-teal-700">Neutral</div>
           </div>
-          <div className="bg-teal-50 rounded-lg p-4">
-            <div className="text-2xl font-bold text-teal-500">{negative}%</div>
+          <div className="bg-red-100 rounded-lg p-4 hover:shadow-2xl transition-all duration-200">
+            <div className="text-2xl font-bold text-gray-700">{negative}%</div>
             <div className="text-sm text-teal-700">Negative</div>
           </div>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-3">
           <div className="flex h-3 rounded-full">
             <div
-              className="bg-teal-600"
+              className="bg-teal-700"
               style={{ width: `${positive}%` }}
             ></div>
             <div
-              className="bg-teal-400"
+              className="bg-yellow-400"
               style={{ width: `${neutral}%` }}
             ></div>
             <div
-              className="bg-teal-300"
+              className="bg-red-700"
               style={{ width: `${negative}%` }}
             ></div>
           </div>
@@ -44,17 +44,10 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
 
   return (
     <div className="w-full max-w-5xl mx-auto space-y-8">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">
-          Thread Analysis Complete
-        </h2>
-        <p className="text-lg text-gray-600">
-          AI-powered insights from the discussion thread
-        </p>
-      </div>
 
 
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-200">
         <div className="flex items-center space-x-3 mb-6">
           <span className="text-3xl">📝</span>
           <h3 className="text-2xl font-bold text-gray-900">Thread Summary</h3>
@@ -65,9 +58,9 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
       </div>
 
 
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-200">
         <div className="flex items-center space-x-3 mb-6">
-          
+
           <h3 className="text-2xl font-bold text-gray-900">Top Insights</h3>
         </div>
         <ul className="space-y-4">
@@ -85,7 +78,7 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
 
       <div className="grid md:grid-cols-2 gap-8">
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-200">
           <div className="flex items-center space-x-3 mb-6">
             <span className="text-3xl">🤝</span>
             <h3 className="text-2xl font-bold text-gray-900">Consensus View</h3>
@@ -96,7 +89,7 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
         </div>
 
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-200">
           <div className="flex items-center space-x-3 mb-6">
             <span className="text-3xl">⚡</span>
             <h3 className="text-2xl font-bold text-gray-900">Controversial Points</h3>
@@ -108,7 +101,7 @@ export default function SummaryCard({ summary, onNewSummary }: { summary: any, o
       </div>
 
 
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all duration-200">
         <div className="flex items-center space-x-3 mb-6">
           <h3 className="text-2xl font-bold text-gray-900">Sentiment Analysis</h3>
         </div>
