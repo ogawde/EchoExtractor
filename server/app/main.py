@@ -59,7 +59,7 @@ async def health_check():
 
 @app.post("/summarize", response_model=SummarizeResponse)
 async def summarize_thread(req: SummarizeRequest):
-    url_str = req.url
+    url_str = str(req.url)
     
     
     cached = cache.get(url_str)

@@ -5,10 +5,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
-
 async def summarize_with_llm(thread_data: dict) -> dict:
-    if not OPENROUTER_API_KEY:
+    api_key = os.getenv('OPENROUTER_API_KEY')
+    if not api_key:
         raise Exception("OpenRouter API key not configured")
     
     title = thread_data.get('title', '')[:200]
@@ -45,7 +44,7 @@ Output only valid JSON with these exact keys. Example format:
             response = await client.post(
                 'https://openrouter.ai/api/v1/chat/completions',
                 headers={
-                    'Authorization': f'Bearer {OPENROUTER_API_KEY}',
+                    'Authorization': f'Bearer {api_key}',
                     'Content-Type': 'application/json',
                     'HTTP-Referer': 'https://thread-summarizer.app',
                     'X-Title': 'Thread Summarizer'
